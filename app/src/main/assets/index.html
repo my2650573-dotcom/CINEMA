@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#090909"><title>CINEMA</title>
+<style>
+:root{--bg:#090909;--panel:#141414;--gold:#d6ad55;--muted:#a7a29a;--line:#302719}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f7f3e9;font-family:Tahoma,Arial,sans-serif}
+header{position:sticky;top:0;z-index:5;background:#090909ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:16px 18px}
+.top{display:flex;align-items:center;justify-content:space-between}.brand{font-size:25px;font-weight:900;letter-spacing:3px;color:var(--gold);direction:ltr}.crown{color:var(--gold);font-size:20px}
+.tag{font-size:11px;color:var(--muted);letter-spacing:2px;margin-top:3px;direction:ltr}
+main{padding:18px 16px 90px;max-width:760px;margin:auto}
+.hero{border:1px solid #6d552b;border-radius:18px;padding:23px 20px;margin:5px 0 23px;background:radial-gradient(circle at 15% 20%,#5b431c88,transparent 42%),linear-gradient(135deg,#211a0e,#111 65%);min-height:165px;display:flex;flex-direction:column;justify-content:center}
+.hero small{color:var(--gold);letter-spacing:2px;direction:ltr;text-align:right}.hero h1{font-size:27px;margin:9px 0}.hero p{color:#c5bda9;font-size:13px;margin:0 0 15px;line-height:1.7}
+.goldbtn{border:0;background:linear-gradient(110deg,#b68b39,#f0d38a);color:#17120a;border-radius:9px;padding:10px 16px;font-weight:bold;width:max-content}
+.search{width:100%;background:#151515;border:1px solid #393126;border-radius:11px;padding:14px;color:white;font-size:14px;outline:none;margin:4px 0 20px}
+.search:focus{border-color:var(--gold)}.sectionhead{display:flex;align-items:center;justify-content:space-between;margin:18px 0 13px}.sectionhead h2{font-size:18px;margin:0}.sectionhead span{font-size:11px;color:var(--gold)}
+.filters{display:flex;gap:8px;overflow:auto;padding-bottom:5px;margin-bottom:16px}.filter{white-space:nowrap;border:1px solid #403523;color:#c9c0ad;background:#121212;border-radius:20px;padding:8px 14px;font-size:12px}.filter.active{background:#d6ad55;color:#17120a;border-color:#d6ad55;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.card{background:var(--panel);border:1px solid #28231b;border-radius:13px;overflow:hidden;position:relative}
+.poster{height:178px;display:flex;align-items:end;padding:13px;background:linear-gradient(0deg,#000e,#0000 70%),var(--poster);position:relative}
+.poster:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#ffffff12,transparent 50%);pointer-events:none}
+.poster .symbol{position:absolute;top:24px;left:0;right:0;text-align:center;font-size:43px;opacity:.75;filter:drop-shadow(0 5px 9px #000)}
+.poster .year{position:relative;z-index:1;color:#f4dfb2;font-size:10px}
+.info{padding:11px}.info h3{font-size:14px;margin:0 0 7px}.meta{font-size:11px;color:var(--muted);display:flex;justify-content:space-between}.rating{color:var(--gold)}
+.actions{display:flex;gap:7px;margin-top:11px}.smallbtn{flex:1;border:1px solid #66512b;background:#211b10;color:#e8c77d;padding:8px 5px;border-radius:7px;font-size:11px}.smallbtn.primary{background:var(--gold);color:#15100a;font-weight:bold}
+nav{position:fixed;bottom:0;left:0;right:0;background:#0d0d0df2;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:10px 5px calc(10px + env(safe-area-inset-bottom));z-index:10}
+nav button{border:0;background:none;color:#8f897d;font-size:11px;display:flex;flex-direction:column;gap:4px;align-items:center}nav button.active{color:var(--gold)}nav b{font-size:18px}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:35px 10px}
+.modal{position:fixed;inset:0;background:#000c;z-index:20;display:none;align-items:end}.modal.show{display:flex}.sheet{background:#151515;border:1px solid #66512b;border-radius:20px 20px 0 0;padding:22px;width:100%;max-height:85vh;overflow:auto}.sheet h2{color:var(--gold)}.sheet p{color:#c4bba9;line-height:1.8;font-size:13px}.close{float:left;background:none;border:0;color:white;font-size:22px}.linkbtn{display:block;text-align:center;text-decoration:none;background:linear-gradient(110deg,#b68b39,#f0d38a);color:#17120a;padding:13px;border-radius:10px;font-weight:bold;margin-top:15px}
+footer{text-align:center;color:#645e53;font-size:10px;margin:30px 0}
+</style></head>
+<body>
+<header><div class="top"><div><div class="brand">CINEMA <span class="crown">✦</span></div><div class="tag">YOUR PREMIUM SERIES GUIDE</div></div><div style="color:var(--gold);font-size:12px">نسخة تجريبية</div></div></header>
+<main>
+<section class="hero"><small>THE WORLD OF SERIES</small><h1>ليلتك.. تستحق قصة عظيمة</h1><p>اكتشف مسلسلاتك المفضلة، تعرّف على تفاصيلها، وانتقل إلى منصاتها الرسمية للمشاهدة.</p><button class="goldbtn" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">استكشف المسلسلات　←</button></section>
+<input class="search" id="search" placeholder="ابحث عن مسلسل..." oninput="render()">
+<div class="sectionhead"><h2 id="listTitle">مختارات CINEMA</h2><span id="count"></span></div>
+<div class="filters" id="filters"></div>
+<div class="grid" id="grid"></div>
+<footer>CINEMA • دليل ترفيهي مستقل — روابط المنصات الرسمية فقط</footer>
+</main>
+<nav><button class="active" onclick="setTab('all',this)"><b>⌂</b>الرئيسية</button><button onclick="setTab('favorites',this)"><b>♡</b>مفضلتي</button><button onclick="document.getElementById('search').focus()"><b>⌕</b>بحث</button></nav>
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()"><div class="sheet"><button class="close" onclick="closeModal()">×</button><div id="details"></div></div></div>
+<script>
+const shows=[
+{id:1,title:"Stranger Things",ar:"أشياء غريبة",genre:"خيال علمي",year:2016,seasons:4,rating:"8.7",symbol:"✦",poster:"linear-gradient(145deg,#4b171b,#15101b 70%)",desc:"تختفي أحداث غامضة في بلدة صغيرة، لتبدأ مجموعة من الأصدقاء رحلة مليئة بالأسرار والخيال العلمي.",platform:"Netflix",url:"https://www.netflix.com/"},
+{id:2,title:"Wednesday",ar:"وينزداي",genre:"غموض",year:2022,seasons:2,rating:"8.0",symbol:"☾",poster:"linear-gradient(145deg,#29253e,#101018 70%)",desc:"طالبة ذات شخصية غامضة تحاول كشف أسرار أكاديمية غريبة وحل لغز يحيط بعائلتها.",platform:"Netflix",url:"https://www.netflix.com/"},
+{id:3,title:"The Crown",ar:"التاج",genre:"دراما",year:2016,seasons:6,rating:"8.6",symbol:"♛",poster:"linear-gradient(145deg,#57411d,#17120c 70%)",desc:"دراما تاريخية تستعرض محطات من حياة العائلة الملكية البريطانية.",platform:"Netflix",url:"https://www.netflix.com/"},
+{id:4,title:"Reacher",ar:"ريچر",genre:"أكشن",year:2022,seasons:3,rating:"8.0",symbol:"◆",poster:"linear-gradient(145deg,#54402c,#17130f 70%)",desc:"رجل يمتلك مهارات استثنائية يجد نفسه وسط قضايا وتحقيقات معقدة.",platform:"Prime Video",url:"https://www.primevideo.com/"},
+{id:5,title:"AlRawabi School for Girls",ar:"مدرسة الروابي للبنات",genre:"دراما",year:2021,seasons:2,rating:"7.1",symbol:"✧",poster:"linear-gradient(145deg,#4b2939,#171018 70%)",desc:"دراما اجتماعية تدور حول مجموعة من الطالبات والعلاقات والتحديات داخل المدرسة.",platform:"Netflix",url:"https://www.netflix.com/"},
+{id:6,title:"The Boys",ar:"ذا بويز",genre:"أكشن",year:2019,seasons:4,rating:"8.6",symbol:"⚡",poster:"linear-gradient(145deg,#59401d,#1b100c 70%)",desc:"عالم من الأبطال الخارقين بواجهة لامعة وأسرار معقدة خلف الشهرة.",platform:"Prime Video",url:"https://www.primevideo.com/"},
+{id:7,title:"Dark",ar:"دارك",genre:"خيال علمي",year:2017,seasons:3,rating:"8.7",symbol:"◉",poster:"linear-gradient(145deg,#263a40,#0b1114 70%)",desc:"اختفاء طفل يكشف شبكة معقدة من الأسرار والروابط الزمنية بين عائلات البلدة.",platform:"Netflix",url:"https://www.netflix.com/"},
+{id:8,title:"Sherlock",ar:"شيرلوك",genre:"غموض",year:2010,seasons:4,rating:"9.1",symbol:"⌕",poster:"linear-gradient(145deg,#34464b,#101619 70%)",desc:"إعادة تصور عصرية لمغامرات المحقق الشهير شيرلوك هولمز.",platform:"BBC iPlayer",url:"https://www.bbc.co.uk/iplayer"}
+];
+let category="الكل",tab="all",favorites=JSON.parse(localStorage.getItem("cinema_favs")||"[]");
+const cats=["الكل","أكشن","دراما","غموض","خيال علمي"];
+document.getElementById("filters").innerHTML=cats.map(c=>`<button class="filter ${c===category?'active':''}" onclick="pickCategory('${c}')">${c}</button>`).join("");
+function pickCategory(c){category=c;document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b.textContent===c));render()}
+function setTab(t,el){tab=t;document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));el.classList.add("active");document.getElementById("listTitle").textContent=t==="favorites"?"قائمة مفضلتي":"مختارات CINEMA";render()}
+function render(){let q=document.getElementById("search").value.toLowerCase();let list=shows.filter(s=>(category==="الكل"||s.genre===category)&&(tab!=="favorites"||favorites.includes(s.id))&&(s.title.toLowerCase().includes(q)||s.ar.includes(q)||s.genre.includes(q)));document.getElementById("count").textContent=list.length+" مسلسل";document.getElementById("grid").innerHTML=list.length?list.map(s=>`<article class="card"><div class="poster" style="--poster:${s.poster}"><div class="symbol">${s.symbol}</div><span class="year">${s.year}</span></div><div class="info"><h3>${s.ar}</h3><div class="meta"><span>${s.genre} • ${s.seasons} مواسم</span><span class="rating">★ ${s.rating}</span></div><div class="actions"><button class="smallbtn primary" onclick="openDetails(${s.id})">التفاصيل</button><button class="smallbtn" onclick="toggleFav(${s.id})">${favorites.includes(s.id)?"♥":"♡"}</button></div></div></article>`).join(""):'<div class="empty">ماكو نتائج حالياً. جرّب بحث أو تصنيف ثاني.</div>'}
+function toggleFav(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];localStorage.setItem("cinema_favs",JSON.stringify(favorites));render()}
+function openDetails(id){let s=shows.find(x=>x.id===id);document.getElementById("details").innerHTML=`<div style="color:var(--gold);font-size:12px;letter-spacing:2px">CINEMA • SERIES</div><h2>${s.ar}</h2><div style="color:#b8a77f">${s.title}</div><p>★ ${s.rating}　•　${s.year}　•　${s.seasons} مواسم　•　${s.genre}</p><p>${s.desc}</p><p>منصة العرض المذكورة: <b>${s.platform}</b>. قد يختلف توفر المسلسل حسب بلدك واشتراكك.</p><a class="linkbtn" href="${s.url}">زيارة ${s.platform} الرسمية ↗</a><button class="smallbtn" style="width:100%;margin-top:10px" onclick="toggleFav(${s.id});openDetails(${s.id})">${favorites.includes(s.id)?"إزالة من المفضلة":"إضافة إلى المفضلة"}</button>`;document.getElementById("modal").classList.add("show")}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+render();
+</script></body></html>
